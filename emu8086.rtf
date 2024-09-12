@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9\par
+\fs32 1. C\f1\lang1066\u7845?\f0\lang9 u tr\'fac c\f2\u417?\f0  b\f1\lang1066\u7843?\f0\lang9 n c\f1\lang1066\u7911?\f0\lang9 a asembly emu8086\par
++ K\'edch th\f2\u432?\f1\lang1066\u7899?\f0\lang1033 c ch\f2\u432?\u417?\f0 ng tr\'ecnh: .model <ch\f1\lang1066\u7871?\f0\lang1033  \f2\'f0\f1\lang1066\u7897?\f0\lang1033  b\f1\lang1066\u7897?\f0\lang1033  nh\f1\lang1066\u7899?\f0\lang1033 >\par
++ ng\f2\'e3\f0 n x\f1\lang1066\u7871?\f0\lang1033 p: .stack\par
++ data: .data\par
++ code: .code\par
+<th\f1\lang1066\u7911?\f0\lang1033  t\f1\lang1066\u7909?\f0\lang1033 c ch\'ednh> \tab\tab Proc\par
+\fs22\lang9\tab\tab\tab\fs32 <c\'e1c l\f1\lang1066\u7879?\f0\lang9 nh c\f1\lang1066\u7911?\f0\lang9 a ch\f2\u432?\u417?\f0 ng tr\'ecnh>\par
+\lang1033 <th\f1\lang1066\u7911?\f0\lang1033  t\f1\lang1066\u7909?\f0\lang1033 c ch\'ednh> \tab\tab Endp\par
+<c\'e1c th\f1\lang1066\u7911?\f0\lang1033  t\f1\lang1066\u7909?\f0\lang1033 c kh\'e1c>\par
+END\par
+\par
+C\'e1c thanh ghi c\'f4ng d\f1\lang1066\u7909?\f0\lang1033 ng chung: AX, BX, CX, DX (16bit) c\'f3 th\f1\lang1066\u7875?\f0\lang1033  \f2\'f0\f0 uc\f1\lang1066\u7907?\f0\lang1033  truy xu\f1\lang1066\u7845?\f0\lang1033 t \f2\'f0\f1\lang1066\u7897?\f0\lang1033 c l\f1\lang1066\u7853?\f0\lang1033 p nh\f2\u432?\f0  2 thanh ghi 8bit: AL, AH, BL, BH, CL, CH, DL, DH.\par
+\par
+C\'e1c thanh ghi con tr\f1\lang1066\u7887?\f0\lang1033  v\'e0 ch\f1\lang1066\u7881?\f0\lang1033  m\f1\lang1066\u7909?\f0\lang1033 c:\par
+SP, BP con tr\f1\lang1066\u7887?\f0\lang1033  khi d\'f9ng l\'e0m vi\f1\lang1066\u7879?\f0\lang1033 c v\f1\lang1066\u7899?\f0\lang1033 i stack\par
+SI, DI ch\f1\lang1066\u7881?\f0\lang1033  s\f1\lang1066\u7889?\f0\lang1033  m\f1\lang1066\u7843?\f0\lang1033 ng khi x\f1\lang1066\u7917?\f0\lang1033  l\'fd m\f1\lang1066\u7843?\f0\lang1033 ng\par
+\par
+M\f1\lang1066\u7897?t l\u7879?nh c\u7911?a vi x\u7917? l\f0\lang1033\'fd 86 c\'f3 d\f1\lang1066\u7841?ng t\u7893?ng qu\f0\lang1033\'e1t nh\f2\u432? sau :\par
+<M\f0\'e3 g\f1\lang1066\u7907?i nh\u7899?> <To\f0\lang1033\'e1n h\f1\lang1066\u7841?ng \f2\'f0\f0\lang1033\'edch>, <To\'e1n h\f1\lang1066\u7841?ng ngu\u7891?n> \par
+\f0\lang1033\par
+c\'e1c l\f1\lang1066\u7879?\f0\lang1033 nh c\f2\u417?\f0  b\f1\lang1066\u7843?\f0\lang1033 n:\par
+ADD: c\f1\lang1066\u7897?\f0\lang1033 ng 2 to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng\par
+DIV: chia 2 to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng\par
+SUB: tr\f1\lang1066\u7915?\f0\lang1033  2 to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng\par
+DEC: tr\f1\lang1066\u7915?\f0\lang1033  to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng 1 \f2\'f0\u417?\f0 n v\f1\lang1066\u7883?\par
+\f0\lang1033 INC: C\f1\lang1066\u7897?\f0\lang1033 ng to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng 1 \f2\'f0\u417?\f0 n v\f1\lang1066\u7883?\f0\lang1033\par
+MUL: nh\'e2n tr\'ean s\f1\lang1066\u7889?\f0\lang1033  kh\'f4ng d\f1\lang1066\u7845?\f0\lang1033 u\par
+AX = AL * ngu\f1\lang1066\u7891?\f0\lang1033 n 8bit\par
+n\f1\lang1066\u7871?\f0\lang1033 u ngu\f1\lang1066\u7891?\f0\lang1033 n l\'e0 16bit th\'ec k\f1\lang1066\u7871?\f0\lang1033 t qu\f1\lang1066\u7843?\f0\lang1033  l\f2\u432?\f0 u v\'e0o DX AX = AX * ngu\f1\lang1066\u7891?\f0\lang1033 n 16bit ph\f1\lang1066\u7847?\f0\lang1033 n th\f1\lang1066\u7845?\f0\lang1033 p \f1\lang1066\u7903?\f0\lang1033  AX cao \f1\lang1066\u7903?\f0\lang1033  DX\par
+MOV: l\f1\lang1066\u7845?\f0\lang1033 y gi\'e1 tr\f1\lang1066\u7883?\f0\lang1033  c\f1\lang1066\u7911?\f0\lang1033 a to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng ngu\f1\lang1066\u7891?\f0\lang1033 n \f2\'f0\f1\lang1066\u7863?\f0\lang1033 t v\'e0o to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng \f2\'f0\f0\'edch n\f1\lang1066\u7897?\f0\lang1033 i dung c\f1\lang1066\u7911?\f0\lang1033 a to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng ngu\f1\lang1066\u7891?\f0\lang1033 n kh\'f4ng b\f1\lang1066\u7883?\f0\lang1033  thay \f2\'f0\f1\lang1066\u7893?\f0\lang1033 i\line LEA: chuy\f1\lang1066\u7875?\f0\lang1033 n \f2\'f0\f1\lang1066\u7883?\f0\lang1033 a ch\f1\lang1066\u7881?\f0\lang1033  offset c\f1\lang1066\u7911?\f0\lang1033 a to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng ngu\f1\lang1066\u7891?\f0\lang1033 n v\'e0o to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng \f2\'f0\f0\'edch. L\f1\lang1066\u7879?\f0\lang1033 nh n\'e0y th\f2\u432?\f1\lang1066\u7901?\f0\lang1033 ng \f2\'f0\u432?\f1\lang1066\u7907?\f0\lang1033 c s\f1\lang1066\u7917?\f0\lang1033  d\f1\lang1066\u7909?\f0\lang1033 ng \f2\'f0\f1\lang1066\u7875?\f0\lang1033  l\f1\lang1066\u7845?\f0\lang1033 y \f2\'f0\f1\lang1066\u7883?\f0\lang1033 a ch\f1\lang1066\u7881?\f0\lang1033  offset c\f1\lang1066\u7911?\f0\lang1033 a m\f1\lang1066\u7897?\f0\lang1033 t bi\f1\lang1066\u7871?\f0\lang1033 n \f2\'f0\f0\'e3 \f2\'f0\u432?\f1\lang1066\u7907?\f0\lang1033 c khai b\'e1o trong ch\f2\u432?\u417?\f0 ng tr\'ecnh. Thanh ghi \f2\'f0\u432?\f1\lang1066\u7907?\f0\lang1033 c s\f1\lang1066\u7917?\f0\lang1033  d\f1\lang1066\u7909?\f0\lang1033 ng trong tr\f2\u432?\f1\lang1066\u7901?\f0\lang1033 ng h\f1\lang1066\u7907?\f0\lang1033 p n\'e0y l\'e0 thanh ghi c\f2\u417?\f0  s\f1\lang1066\u7903?\f0\lang1033  BX v\'e0 thanh ghi ch\f1\lang1066\u7881?\f0\lang1033  m\f1\lang1066\u7909?\f0\lang1033 c SI\par
+AND: v\'e0\par
+CALL:\tab  G\f1\lang1066\u7885?\f0\lang1033 i \f2\'f0\f1\lang1066\u7871?\f0\lang1033 n 1 h\'e0m\par
+CMP: so s\'e1nh gi\'e1 tr\f1\lang1066\u7883?\f0\lang1033  / n\f1\lang1066\u7897?\f0\lang1033 i dung c\f1\lang1066\u7911?\f0\lang1033 a to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng \f2\'f0\f0\'edch so v\f1\lang1066\u7899?\f0\lang1033 i to\'e1n h\f1\lang1066\u7841?\f0\lang1033 ng ngu\f1\lang1066\u7891?\f0\lang1033 n\par
+INT: D\'f9ng trong c\'e1c l\f1\lang1066\u7879?\f0\lang1033 nh ng\f1\lang1066\u7855?\f0\lang1033 t\par
+C\'fa ph\'e1p: INT 21h \par
+POP:\tab l\f1\lang1066\u7845?\f0\lang1033 y 1 ph\f1\lang1066\u7847?\f0\lang1033 n t\f1\lang1066\u7917?\f0\lang1033  \f1\lang1066\u7903?\f0\lang1033  cu\f1\lang1066\u7889?\f0\lang1033 i stack\par
+PUSH: \f2\'f0\f1\lang1066\u7849?\f0\lang1033 y m\f1\lang1066\u7897?\f0\lang1033 t ph\f1\lang1066\u7847?\f0\lang1033 n t\f1\lang1066\u7917?\f0\lang1033  v\'e0o cu\f1\lang1066\u7889?\f0\lang1033 i stack\par
+LOOP:\par
+c\'fa ph\'e1p: LOOP <nh\'e3n \f2\'f0\f0\'edch>: ch\f2\u432?\u417?\f0 ng tr\'ecnh s\f1\lang1066\u7869?\f0\lang1033  l\f1\lang1066\u7863?\f0\lang1033 p l\f1\lang1066\u7841?\f0\lang1033 i vi\f1\lang1066\u7879?\f0\lang1033 c th\f1\lang1066\u7921?\f0\lang1033 c hi\f1\lang1066\u7879?\f0\lang1033 n c\'e1c c\'e2u l\f1\lang1066\u7879?\f0\lang1033 nh sau <nh\'e3n l\f1\lang1066\u7879?\f0\lang1033 nh> \f2\'f0\f1\lang1066\u7911?\f0\lang1033  n l\f1\lang1066\u7847?\f0\lang1033 n v\f1\lang1066\u7899?\f0\lang1033 i n \f2\'f0\u432?\f1\lang1066\u7907?\f0\lang1033 c \f2\'f0\f1\lang1066\u7863?\f0\lang1033 t tr\f2\u432?\f1\lang1066\u7899?\f0\lang1033 c trong thanh ghi CX. Sau m\f1\lang1066\u7895?\f0\lang1033 i l\f1\lang1066\u7847?\f0\lang1033 n l\f1\lang1066\u7863?\f0\lang1033 p CX t\f1\lang1066\u7921?\f0\lang1033  \f2\'f0\f1\lang1066\u7897?\f0\lang1033 ng gi\f1\lang1066\u7843?\f0\lang1033 m 1 \f2\'f0\u417?\f0 n v\f1\lang1066\u7883?\f0\lang1033  v\'e0 l\f1\lang1066\u7879?\f0\lang1033 nh l\f1\lang1066\u7863?\f0\lang1033 p s\f1\lang1066\u7869?\f0\lang1033  d\f1\lang1066\u7915?\f0\lang1033 ng khi CX = 0.\par
+RET:\par
+C\'e1c l\f1\lang1066\u7879?\f0\lang1033 nh ng\f1\lang1066\u7855?\f0\lang1033 t c\f2\u417?\f0  b\f1\lang1066\u7843?\f0\lang1033 n:\par
+ah = 1: \f2\'d0\f1\lang1066\u7885?\f0\lang1033 c m\f1\lang1066\u7897?\f0\lang1033 t k\'fd t\f1\lang1066\u7921?\f0\lang1033  \f2\'f0\u432?\f1\lang1066\u7907?\f0\lang1033 c nh\f1\lang1066\u7853?\f0\lang1033 p v\'e0o t\f1\lang1066\u7915?\f0\lang1033  b\'e0n ph\'edm, AL s\f1\lang1066\u7869?\f0\lang1033  l\f2\u432?\f0 u m\'e3 ASCII c\f1\lang1066\u7911?\f0\lang1033 a ph\'edm v\f1\lang1066\u7915?\f0\lang1033 a nh\f1\lang1066\u7853?\f0\lang1033 p. N\f1\lang1066\u7871?\f0\lang1033 u ph\'edm v\f1\lang1066\u7915?\f0\lang1033 a nh\f1\lang1066\u7853?\f0\lang1033 p l\'e0 ph\'edm ch\f1\lang1066\u7913?\f0\lang1033 c n\f2\'e3\f0 ng th\'ec AL = 0.\par
+ah = 2: Hi\f1\lang1066\u7879?\f0\lang1033 n m\f1\lang1066\u7897?\f0\lang1033 t k\'fd t\f1\lang1066\u7921?\f0\lang1033  c\'f3 m\'e3 ASCII l\'e0 gi\'e1 tr\f1\lang1066\u7883?\f0\lang1033  c\f1\lang1066\u7911?\f0\lang1033 a DL l\'ean m\'e0n h\'ecnh\par
+ah = 9: hi\f1\lang1066\u7879?\f0\lang1033 n x\'e2u k\'fd t\f1\lang1066\u7921?\f0\lang1033  c\'f3 \f2\'f0\f1\lang1066\u7883?\f0\lang1033 a ch\f1\lang1066\u7881?\f0\lang1033  l\f1\lang1066\u7879?\f0\lang1033 ch l\'e0 gi\'e1 tr\f1\lang1066\u7883?\f0\lang1033  c\f1\lang1066\u7911?\f0\lang1033 a DX\par
+ah = 4ch: d\f1\lang1066\u7915?\f0\lang1033 ng ch\f2\u432?\u417?\f0 ng tr\'ecnh\par
+ah = 0ch/ ah = 10 nh\f1\lang1066\u7853?\f0\lang1033 p v\'e0o m\f1\lang1066\u7897?\f0\lang1033 t chu\f1\lang1066\u7895?\f0\lang1033 i\par
+\fs22\lang9\par
+}
+ 
