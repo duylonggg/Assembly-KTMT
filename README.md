@@ -1,14 +1,10 @@
 # Assembly-KTMT
 
-Cài đặt wsl
+Cài đặt wsl và Ubuntu
 
-Cài đặt Ubuntu
-
-Unbuntu là trình duyệt mặc định wsl
-
-wsl --install
-sudo apt update
-sudo apt install nasm
+1. wsl --install
+2. sudo apt update
+3. sudo apt install nasm
 
 Chạy chương trình:
 - nasm -f elf32 file.asm: Dich sang file .o
