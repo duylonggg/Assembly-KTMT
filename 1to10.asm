@@ -2,23 +2,30 @@
 include \masm32\include\masm32rt.inc
 
 .data
-    msg db "Number: %d", 13, 10, 0
-    buffer db 20 dup(0)
-    counter dd 1
+    n dd 0
 
 .code
-start:
+print_1_to_n proc num:dword
+    local index:dword
+    mov index, 1
+laplai:    
     
-print_loop:
-    push ecx  ; Lưu giá trị ecx
-    invoke wsprintf, addr buffer, addr msg, [counter]
-    invoke StdOut, addr buffer
-    pop ecx   ; Khôi phục giá trị ecx
+    mov eax, num
+    cmp eax, index
+    jge hienThi
+    jl ketThuc
+hienThi:
+    print str$(index)
+    print chr$(13, 10)
+    inc index
+    jmp laplai
+ketThuc:
     
-    inc [counter]
-    mov ecx, [counter]
-    cmp ecx, 11
-    jle print_loop
 
-    invoke ExitProcess, 0
+ret
+print_1_to_n endp
+
+start:
+    mov n, sval(input("n = "))
+    invoke print_1_to_n, n
 end start
