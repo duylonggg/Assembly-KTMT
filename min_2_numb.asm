@@ -14,10 +14,10 @@ section .text
 _start:
     mov ecx, [a]
     cmp ecx, [b] 
-    jle .b_is_min
+    jle .a_is_min
 
-.b_is_min:
-    mov ecx, [b]
+.a_is_min:
+    mov ecx, [a]
 
 __exit:
     mov [result], ecx 
@@ -28,14 +28,14 @@ __exit:
     mov eax, 4
     int 0x80
 
-    mov ecx, newline
-    mov edx, 1
+    mov ecx, result
+    mov edx, 2
     mov ebx, 1
     mov eax, 4
     int 0x80
-
-    mov ecx, result
-    mov edx, 2
+    
+    mov ecx, newline
+    mov edx, 1
     mov ebx, 1
     mov eax, 4
     int 0x80

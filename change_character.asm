@@ -1,31 +1,27 @@
 section .data
-    prompt db 'Nhap vao mot ky tu: ', 0
+    prompt db 'Ky tu sau khi chuyen doi: ', 0
     len equ $ - prompt
     newline db 0xA, 0
+    input_char db 'A'     ; Cho sẵn một ký tự, ví dụ 'A'
 
 section .bss
-    char resb 1  ; Ký tự nhập vào từ người dùng
+    char resb 1           ; Biến lưu trữ ký tự sau khi chuyển đổi
 
 section .text
     global _start
 
 _start:
-    ; In thông báo yêu cầu người dùng nhập ký tự
+    ; In thông báo
     mov eax, 4           ; syscall sys_write
     mov ebx, 1           ; xuất ra stdout
     mov ecx, prompt      ; địa chỉ chuỗi prompt
-    mov edx, len          ; độ dài chuỗi prompt
+    mov edx, len         ; độ dài chuỗi prompt
     int 0x80
 
-    ; Đọc ký tự từ người dùng
-    mov eax, 3           ; syscall sys_read
-    mov ebx, 0           ; đọc từ stdin
-    mov ecx, char        ; lưu ký tự vào biến char
-    mov edx, 1           ; đọc 1 byte (1 ký tự)
-    int 0x80
+    ; Lấy ký tự cho sẵn từ data segment vào thanh ghi al
+    mov al, [input_char]
 
     ; Kiểm tra xem ký tự là chữ hoa hay chữ thường
-    mov al, [char]       ; lấy ký tự từ bộ nhớ vào thanh ghi al
     cmp al, 'A'
     jl .not_alpha        ; Nếu nhỏ hơn 'A' thì không phải ký tự
     cmp al, 'Z'
