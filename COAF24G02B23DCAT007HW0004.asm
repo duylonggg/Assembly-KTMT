@@ -1,5 +1,5 @@
 include \masm32\include\masm32rt.inc
-
+;Duong Hoang Anh - B23DCAT007
 .data
     num1 dd 5       
     num2 dd 10      
@@ -7,7 +7,7 @@ include \masm32\include\masm32rt.inc
 
 .code
 
-; ??nh ngh?a macro PRINT_SUM
+; macro PRINT_SUM
 PRINT_SUM MACRO val1, val2
     mov eax, val1           
     add eax, val2           

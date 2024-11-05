@@ -1,5 +1,5 @@
 include \masm32\include\masm32rt.inc
-
+;Duong Hoang Anh - B23DCAT007
 .data
     input1 dd 0
     input2 dd 0
