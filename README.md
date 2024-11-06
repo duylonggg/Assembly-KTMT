@@ -6,5 +6,4 @@
 - Hà Duy Long (NT) - B23DCAT172
 ---
 ## De bai:
-[📄 Xem Đề bài BTL KTMT](./Đề-bài-BTL-KTMT.pdf)
-
+![Đề bài BTL KTMT](./Đề-bài-BTL-KTMT.png)
