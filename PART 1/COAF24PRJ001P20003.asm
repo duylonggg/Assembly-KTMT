@@ -1,77 +1,136 @@
-; Duong Hoang Anh - B23DCAT007
-; Nguyen Hoang Anh - B23DCAT012
-; Tran Khanh Duy - B23DCAT077
-; Ha Duy Long - B23DCAT172
-
-;viet ham con theo yeu cau de va in ra ket qua
 .model small
 .stack 100h
 .data
-    a db 5
-    b db 5            
-    result dw ?       
+    result dw ?       ; bien luu ket qua
+    a dw 0
+    b dw 16
 
 .code
 main proc
     mov ax, @data
     mov ds, ax
+
+    mov ax, a
+    push ax           ; push a
+    mov ax, b
+    push ax           ; push b
     
-    call myfunc       ;goi ham con
-    mov ah, 0         ;dat ah = 0 de phep tinh duoc thu hien dung
-    mov result, ax    ;result = ax
-    call inso         ;goi ham in so
-        
-    mov ah, 4ch
+    call myFunc       ; goi hàm myFunc
+    
+    ; luu ket qua vi tri cua myFunc vào result
+    mov result, ax
+    
+    ; goi ham in so
+    call indau
+    
+    ;ket thuc chuong trinh
+    mov ah, 4Ch
     int 21h
-
 main endp
+;   x = [SP+4], y = [SP+2]
+myFunc proc
+    ; thiet lap bp de làm co so truy cap cac tham so tren stack
+    push bp           ; Luu BP hien tai
+    mov bp, sp        ; BP tro den vi tri hien tai cua SP
 
-myfunc proc
-    ;thuc hien day vao ngan xep
-    mov al, a         
-    push ax           
-    mov al, b         
-    push ax
-    pop ax            
-    pop bx
-       
-    cmp ax, bx        ;so sanh ax voi bx
-    je bang           ;neu bang thi nhay den ham bang
+    mov ax, [bp+4]    ; ax = x
+    mov bx, [bp+6]    ; bx = y
+    
+    xor dx, dx
 
-    add bl, al        ;neu khong thi tinh tong va and voi 16
-    and bl, 16        
-    mov al, bl        ;gan lai gia tri cho al
-    jmp ketthuc       ;nhay den ham ketthuc
+    ; Tinh tong x + y
+    add ax, bx        ; ax = x + y
+    test ax, 8000h 
+    jnz chuyendoi
 
-    bang:
-        add al, bl    ;neu bang thi thuc hien dich bit    
-        shl al, 2         
-        jmp ketthuc   ;nhay den ham ketthuc
+    ; So sanh x và y
+    sosanh:
+        mov cx, [bp+4]    ; cx = x
+        cmp cx, bx        ; So sanh x voi y
+        je bang          ; Neu x == y, nhay den nhan bang
+    
+        ; Truong hop x != y: z &= 16
+        cmp dx, 1
+        je khongbang
+        and ax, 16        ; ax &= 16
+        jmp ketthuc       ; Nhay den ket thuc hàm
+    
+    ;chuyen so am thanh so duong    
+    chuyendoi:
+        neg ax
+        mov dx, 1
+        jmp sosanh
+    
+    ;chuyen so duong thanh so am    
+    chuyendoi2:
+        neg ax
+        mov dx, 0
+        jmp ketthuc    
+    
+    khongbang:
+        neg ax
+        mov dx, 0
+        and ax, 16        ; ax &= 16
+        jmp ketthuc       ; Nhay den ket thuc hàm
+bang:
+    shl ax, 2         ; ax <<= 2
+    cmp dx, 1
+    je chuyendoi2
 
-    ketthuc:
-        ret           ;return     
-myfunc endp
+ketthuc:
+    pop bp            ; Khôi ph?c BP ban d?u
+    ret               ; Tr? v? (stack dã du?c gi? nguyên)
+myFunc endp
 
-;ham in 1 so nguyen
+; Hàm in s? nguyên
+indau proc
+    mov ax, result    ; ax = result
+    
+    mov cx, ax        ; cx = 0
+    mov bx, 10        ; bx = 10 d? chu?n b? chia
+    
+    ; Ki?m tra xem s? có âm không
+    test ax, 8000h    ; Ki?m tra bit cao nh?t (bit 15)
+    jz soduong ; N?u s? không âm, nh?y d?n ph?n x? lý s? duong
+
+    ; In d?u "-"
+    mov dl, '-'        ; Ð?t ký t? '-' vào DL
+    mov ah, 2          ; Hàm in ký t?
+    int 21h
+    mov ax, cx  
+    
+
+    ; Chuyen so am thành tri tuyet doi
+    neg ax             ; Chuy?n s? âm thành s? duong
+
+soduong:
+    ; Chuy?n s? duong thành chu?i và in ra
+    call inso
+
+    ret
+indau endp
+
+; Hàm chuyen so thành chuoi và in ra
 inso proc
-        mov ax, result  ;ax = result
-        xor cx, cx      ;cx = 0
-        mov bx, 10      ;bx = 10 de chuan bi cho phep chia
-        
-    chuyenso:
-        xor dx, dx      ;dx = 0
-        div bx          ;ax /= bx phan du luu vao dx
-        push dx         ;day dx vao ngan xep
-        inc cx          ;tang cx dung cho ham inlap
-        cmp ax, 0       ;kiem tra xem chia het chua
-        jnz chuyenso    ;chua het thi nhay den ham chuyen so
-    inlap:
-        pop dx          ;lay gia ngoai cung stack gan vao dx
-        add dl, '0'     ;chuyen so thanh ki tu
-        mov ah, 2       ;in 1 ki tu
-        int 21h
-        loop inlap      ;lap cho den khi cx = 0
-        
-        ret
-    inso endp
+    ; Chuyen doi so thanh cac chu so tren stack
+    xor cx, cx            ; lam sach cx
+    mov bx, 10            ; Co so 10 de chia
+
+chuyen:
+    xor dx, dx            ; Xoa DX truoc khi chia
+    div bx                ; ax /= bx, phan du luu vào dx
+    push dx               ; day dx vào stack
+    inc cx                ; Tang CX de dem so chu so
+    cmp ax, 0             ; Kiem tra xem ax co het so khong
+    jnz chuyen           ; Neu ax chua bang 0, tiep tuc chuyen doi
+
+inlap:
+    pop dx                ; Lay gia tri ngoai cung trong stack gan vào dx
+    add dl, '0'           ; Chuyen so thành ki tu
+    mov ah, 2             ; Ham in 1 ki tu
+    int 21h
+    loop inlap        ; Lap den khi CX = 0
+    
+    ret
+inso endp
 end main
