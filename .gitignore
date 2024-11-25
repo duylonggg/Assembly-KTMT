@@ -1,1 +1,3 @@
 *.git
+PART 2/venv/
+PART 2/__pycache__/
