@@ -27,6 +27,7 @@ class CPU8086:
             if cmd == "MOV":
                 # Lệnh MOV: MOV REG, VALUE
                 reg, value = operands
+                reg = reg[:-1]
                 if reg in self.registers:
                     if isinstance(self.registers[reg], dict):  # AX, BX, CX, DX
                         if value in self.registers and isinstance(self.registers[value], dict):
@@ -43,6 +44,7 @@ class CPU8086:
 
             elif cmd == "ADD":
                 reg, value = operands
+                reg = reg[:-1]
                 if reg in self.registers:
                     if isinstance(self.registers[reg], dict):
                         if value in self.registers and isinstance(self.registers[value], dict):
@@ -59,6 +61,7 @@ class CPU8086:
 
             elif cmd == "SUB":
                 reg, value = operands
+                reg = reg[:-1]
                 if reg in self.registers:
                     if isinstance(self.registers[reg], dict):
                         if value in self.registers and isinstance(self.registers[value], dict):
